@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Nikolay Portfolio Projects
  * Description: Project content model for the Nikolay Portfolio.
- * Version: 1.0.0
+ * Version: 1.0.2
  * Author: Nikolay
  * Text Domain: nikolay-portfolio-projects
  * Requires at least: 6.0
@@ -26,6 +26,8 @@ function np_projects_init() {
 	np_projects_register_default_terms();
 }
 add_action( 'init', 'np_projects_init' );
+
+require_once __DIR__ . '/includes/project-meta.php';
 
 /**
  * Register the project custom post type.
@@ -66,6 +68,7 @@ function np_projects_register_post_type() {
 			'thumbnail',
 			'revisions',
 			'page-attributes',
+			'custom-fields',
 		),
 		'menu_icon'          => 'dashicons-portfolio',
 	);
