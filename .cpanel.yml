@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/nikwebeu/public_html/wp-content/plugins/nikolay-portfolio-projects/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp nikolay-portfolio-projects.php $DEPLOYPATH
+    - /bin/cp -R includes $DEPLOYPATH
