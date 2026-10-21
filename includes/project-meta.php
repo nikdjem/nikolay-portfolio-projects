@@ -273,14 +273,20 @@ function np_projects_save_meta_box( $post_id ) {
 		return;
 	}
 
-	$status = isset( $_POST['np_project_status'] ) ? np_projects_sanitize_status_meta( wp_unslash( $_POST['np_project_status'] ) ) : '';
-	update_post_meta( $post_id, '_np_project_status', $status );
+	if ( isset( $_POST['np_project_status'] ) ) {
+		$status = np_projects_sanitize_status_meta( wp_unslash( $_POST['np_project_status'] ) );
+		update_post_meta( $post_id, '_np_project_status', $status );
+	}
 
-	$github_url = isset( $_POST['np_project_github_url'] ) ? np_projects_sanitize_url_meta( wp_unslash( $_POST['np_project_github_url'] ) ) : '';
-	update_post_meta( $post_id, '_np_project_github_url', $github_url );
+	if ( isset( $_POST['np_project_github_url'] ) ) {
+		$github_url = np_projects_sanitize_url_meta( wp_unslash( $_POST['np_project_github_url'] ) );
+		update_post_meta( $post_id, '_np_project_github_url', $github_url );
+	}
 
-	$live_url = isset( $_POST['np_project_live_url'] ) ? np_projects_sanitize_url_meta( wp_unslash( $_POST['np_project_live_url'] ) ) : '';
-	update_post_meta( $post_id, '_np_project_live_url', $live_url );
+	if ( isset( $_POST['np_project_live_url'] ) ) {
+		$live_url = np_projects_sanitize_url_meta( wp_unslash( $_POST['np_project_live_url'] ) );
+		update_post_meta( $post_id, '_np_project_live_url', $live_url );
+	}
 }
 add_action( 'save_post_project', 'np_projects_save_meta_box' );
 
